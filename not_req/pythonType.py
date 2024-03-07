@@ -1,4 +1,4 @@
-def add(firstName: str | list, lastName:str):
+def add(firstName: str | list, lastName:str =None):
     a=firstName.capitalize()
     b=lastName.capitalize()
     return a+" "+b
