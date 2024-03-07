@@ -52,14 +52,30 @@
 </div>
 <div class="container">
     <h2>YOUR NOTES</h2>
-    <ul>
-        {% if newDocs is defined %}
-        No notes to display
-        {% endif %}
-        {% for item in newDocs %}
-        <li>{{ item.note }}</li>
-        {% endfor %}
-    </ul>
+     <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Important</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% if newDocs is defined %}
+                {% for item in newDocs %}
+                    <tr>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.desc }}</td>
+                        <td>{{ item.important }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="3">No notes to display</td>
+                </tr>
+            {% endif %}
+        </tbody>
+    </table>
 </div>
 
 
