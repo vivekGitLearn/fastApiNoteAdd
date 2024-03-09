@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container">
+    <h1>
+        update your notes
+    </h1>
+    {% if nodeList is defined %}
+      {% for item in nodeList %}
+    <form action="/submit_update" method="post">
+       <div class="mb-3">
+            <label class="form-label">id</label>
+            <input type="text" class="form-control" value="{{ item._id }}" name="_id" readonly>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Enter topic</label>
+            <input type="text" class="form-control" value="{{ item.title }}" name="title"
+                   aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <input type="text" class="form-control" value="{{ item.desc }}" name="desc" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" value="{{ item.important }}" name="important">
+            <label class="form-check-label">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+     {% endfor %}
+    {% else %}
+    <p>Objet not pass</p>
+    {% endif %}
+</div>
+</body>
+</html>
